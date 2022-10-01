@@ -63,6 +63,10 @@ class TestAllMethods(unittest.TestCase):
 
 	## Check to see whether count_a works
 	def test_count_a(self):
+		self.assertEqual(count_a("this is bad"), 1)
+		self.assertEqual(count_a("hello"), 0)
+		self.assertEqual(count_a("this is bd a"), 1)
+		self.assertEqual(count_a("A this is"), 1)
 		pass
 
 
