@@ -67,22 +67,37 @@ class TestAllMethods(unittest.TestCase):
 		self.assertEqual(count_a("hello"), 0)
 		self.assertEqual(count_a("this is bd a"), 1)
 		self.assertEqual(count_a("A this is"), 1)
-		pass
+	
 
 
 	## Check to see whether you can add an item to the warehouse
 	def test_add_item(self):
-		pass
+		w = Warehouse()
+		w.add_item(self.item1)
+		self.assertEqual(len(w.items), 1)
+		w.add_item(self.item2)
+		self.assertEqual(len(w.items), 2)
 
 
 	## Check to see whether warehouse correctly returns the item with the most stock
 	def test_warehouse_max_stocks(self):
-		pass
+		w = Warehouse()
+		w.add_item(self.item1)
+		w.add_item(self.item2)
+		w.add_item(self.item3)
+		self.assertEqual(w.get_min_stock(), "Beer")
+		w.add_item(self.item6)
+
 
 
 	# Check to see whether the warehouse correctly return the item with the highest price
 	def test_warehouse_max_price(self):
-		pass
+		w = Warehouse()
+		w.add_item(self.item3)
+		w.add_item(self.item4)
+		self.assertEqual(w.get_max_price(), "Fanta")
+		w.add_item(self.item5)
+		self.assertEqual(w.get_max_price(), "CocaCola")
 		
 
 def main():
